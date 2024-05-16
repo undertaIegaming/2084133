@@ -33,33 +33,29 @@ const resultats = [
 
 function insert_grades(_index)
 {
-	var table = document.getElementById("dude");
-	var tableRow = document.createElement("tr");
-	var id = document.createElement("td");
-	var name = document.createElement("td");
-	var grade = document.createElement("td");
-	
-	id.textContent = etudiants[_index].id;
-	name.textContent = etudiants[_index].name;
+	var yeah = false;
+	var index = 0;
+	document.write("<tr>");
+	document.write("<td>" + etudiants[_index].id + "</td>");
+	document.write("<td>" + etudiants[_index].name + "</td>");
 	
 	for (var i = 0; i < resultats.length; i++)
 	{
 		if (etudiants[_index].id === resultats[i].id)
 		{
-			grade.textContent = resultats[i].total;
+			yeah = true;
+			index = i;
 			break;
 		}
 		else
-			grade.textContent = "";
+			yeah = false;
 	}
 	
-	if (grade.textContent === "")
-		grade.textContent = 0;
-	
-	tableRow.appendChild(id);
-	tableRow.appendChild(name);
-	tableRow.appendChild(grade);
-	table.appendChild(tableRow);
+	if (yeah === true)
+		document.write("<td>" + resultats[index].total + "</td>");
+	else
+		document.write("<td>" + 0 + "</td>");
+	document.write("</tr>");
 }
 
 for (var i = 0; i < etudiants.length; i++)
