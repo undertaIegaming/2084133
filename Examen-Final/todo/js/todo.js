@@ -10,9 +10,14 @@ document.addEventListener('DOMContentLoaded', function()
 	inputBox.addEventListener('input', function() {
 		addButton.disabled = inputBox.value.trim().length === 0;
 	});
+	taskList.addEventListener('change', function(event) {
+		if (event.target.matches('input[type="checkbox"]')) {
+			checkForStrike(event);
+		}
+	});
 	
 	//focus on the box, //TO FIX
-	inputbox.focus();
+	inputBox.focus();
 	
 	//add to the list !
 	function onAddPress()
@@ -36,6 +41,17 @@ document.addEventListener('DOMContentLoaded', function()
 			var listItem = checkbox.parentNode;
 			taskList.removeChild(listItem);
 		});
+	}
+	
+	function checkForStrike(event)
+	{
+		var check = event.target;
+		var listItem = check.parentElement;
+
+		if (check.checked)
+			listItem.classList.add('strike-task');
+		else
+			listItem.classList.remove('strike-task');
 	}
 	
 	buttonDelete.disabled = taskList.childElementCount === 0
