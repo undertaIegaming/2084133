@@ -18,11 +18,11 @@ Fonctionnement
 
 Barème de correction sur 100
 
-    Position du curseur à l'ouverture                               8
-    Ajout d'une tache à la liste ("Enter" ou  le bouton "Ajout")    24
-    Bouton "Ajout" désactivé:                                       8
-    Bouton "Suppression" désactivé:                                 8
-    Suppression des taches sélectionnées de la liste:               24
-    Applique un style barré sur les taches:                         8
+    Position du curseur à l'ouverture                               8 //added, works
+    Ajout d'une tache à la liste ("Enter" ou  le bouton "Ajout")    24 //need to add entrer functs
+    Bouton "Ajout" désactivé:                                       8 //does it on default/after button press
+    Bouton "Suppression" désactivé:                                 8 //does it on default/depending on if anything is selected or not
+    Suppression des taches sélectionnées de la liste:               24 //works perfectly
+    Applique un style barré sur les taches:                         8 //works perfectly
 
-    Code propre: Nom et étendue des variables et fonction ...       20
+    Code propre: Nom et étendue des variables et fonction ...       20 //WELL yeah

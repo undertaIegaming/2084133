@@ -7,16 +7,24 @@ document.addEventListener('DOMContentLoaded', function()
 	var taskList = document.getElementById('taskList');	
 	buttonAdd.addEventListener('click', onAddPress);
 	buttonDelete.addEventListener('click', onDeletePress);
+	//checks for if the inputbox is empty or not
 	inputBox.addEventListener('input', function() {
 		addButton.disabled = inputBox.value.trim().length === 0;
 	});
+	//same check, except for the enter key 
+	inputBox.addEventListener('keypress', function(event) {
+		if (event.key === 'Enter' && inputBox.value.trim().length !== 0) {
+			onAddPress();
+		}
+	});
+	//checks for any changes within the checkboxes
 	taskList.addEventListener('change', function(event) {
 		if (event.target.matches('input[type="checkbox"]')) {
 			checkForStrike(event);
 		}
 	});
 	
-	//focus on the box, //TO FIX
+	//focus on the box
 	inputBox.focus();
 	
 	//add to the list !
@@ -31,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function()
 		taskList.appendChild(li);
 		inputBox.value = '';
 		buttonAdd.disabled = true;
-		buttonDelete.disabled = false;
 	}
 	
 	//delete unwanted list entries
@@ -43,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function()
 		});
 	}
 	
+	//manages the strikethrough for the checks
 	function checkForStrike(event)
 	{
 		var check = event.target;
@@ -52,7 +60,8 @@ document.addEventListener('DOMContentLoaded', function()
 			listItem.classList.add('strike-task');
 		else
 			listItem.classList.remove('strike-task');
+		
+		//manages if the delete button is enabled or not, checks if anything in taskList is checked.
+		buttonDelete.disabled = !document.querySelector('#taskList input[type="checkbox"]:checked');
 	}
-	
-	buttonDelete.disabled = taskList.childElementCount === 0
 });
