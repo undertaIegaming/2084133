@@ -19,7 +19,7 @@ Fonctionnement
 Barème de correction sur 100
 
     Position du curseur à l'ouverture                               8 //added, works
-    Ajout d'une tache à la liste ("Enter" ou  le bouton "Ajout")    24 //need to add entrer functs
+    Ajout d'une tache à la liste ("Enter" ou  le bouton "Ajout")    24 //done, works perfectly
     Bouton "Ajout" désactivé:                                       8 //does it on default/after button press
     Bouton "Suppression" désactivé:                                 8 //does it on default/depending on if anything is selected or not
     Suppression des taches sélectionnées de la liste:               24 //works perfectly
